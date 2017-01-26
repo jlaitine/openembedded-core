@@ -25,7 +25,8 @@ python () {
         d.setVar("TARGET_AS_ARCH", "none")
         d.setVar("TARGET_FPU", "")
         d.setVar("TARGET_PREFIX", "")
-        d.setVar("PACKAGE_EXTRA_ARCHS", "")
+        # Expand PACKAGE_EXTRA_ARCHS since the staging code needs this
+        d.setVar("PACKAGE_EXTRA_ARCHS", d.getVar("PACKAGE_EXTRA_ARCHS"))
         d.setVar("SDK_ARCH", "none")
         d.setVar("SDK_CC_ARCH", "none")
         d.setVar("TARGET_CPPFLAGS", "none")
